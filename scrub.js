@@ -44,9 +44,9 @@
       for(var bi=0;bi<beats.length;bi++){
         var el=beats[bi], bs=parseFloat(el.getAttribute('data-s')), be=parseFloat(el.getAttribute('data-e'));
         var r=rev(p,bs,be,0.34);
-        var ty=(1-r.a)*38 - (1-r.b)*26;
-        var sc=0.93+r.o*0.07;
-        var bl=(1-r.o)*10;
+        var ty=(1-r.a)*46 - (1-r.b)*32;
+        var sc=0.92+r.o*0.08;
+        var bl=(1-r.o)*11;
         el.style.opacity=r.o.toFixed(3);
         el.style.transform='translateX(-50%) translateY('+ty.toFixed(1)+'px) scale('+sc.toFixed(3)+')';
         el.style.filter=bl>0.06?'blur('+bl.toFixed(1)+'px)':'none';
@@ -58,6 +58,7 @@
         var stt=(se-ss)>0?cl((p-ss)/(se-ss)):0;
         var val=eOut(cl(stt/0.82))*2.5;
         if(speedNum)speedNum.textContent=val.toFixed(2);
+        if(val>=2.49){if(!speed.classList.contains('kwlock'))speed.classList.add('kwlock');}else{speed.classList.remove('kwlock');}
         var sy=(1-rs.a)*34 - (1-rs.b)*22;
         speed.style.opacity=rs.o.toFixed(3);
         speed.style.transform='translateX(-50%) translateY('+sy.toFixed(1)+'px) scale('+(0.95+rs.o*0.05).toFixed(3)+')';
